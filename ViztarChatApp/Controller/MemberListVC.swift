@@ -14,7 +14,8 @@ class MemberListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+       
     }
 
 
@@ -34,7 +35,8 @@ extension MemberListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "ChatVC")
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     
