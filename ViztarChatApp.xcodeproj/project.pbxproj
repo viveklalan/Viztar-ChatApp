@@ -109,10 +109,9 @@
 			children = (
 				494C002025CA989D006B4530 /* chat.plist */,
 				49257B1E25C96D2A00755EC4 /* AppDelegate.swift */,
-				494CFFFE25CA7E17006B4530 /* VLUtility.swift */,
 				49403B5325C9DCCB002E1D07 /* Modal */,
-				4981861B25C9CAB5000C5ABF /* View */,
 				49257B5325C96E2E00755EC4 /* Controller */,
+				49D3C13C25CB26A6006557DC /* Utlity */,
 				49257B5225C96E2100755EC4 /* Storyboard */,
 				49257B2025C96D2A00755EC4 /* SceneDelegate.swift */,
 				49257B2725C96D2C00755EC4 /* Assets.xcassets */,
@@ -165,11 +164,12 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
-		4981861B25C9CAB5000C5ABF /* View */ = {
+		49D3C13C25CB26A6006557DC /* Utlity */ = {
 			isa = PBXGroup;
 			children = (
+				494CFFFE25CA7E17006B4530 /* VLUtility.swift */,
 			);
-			path = View;
+			path = Utlity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

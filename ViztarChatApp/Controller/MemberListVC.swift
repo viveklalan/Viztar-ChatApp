@@ -8,31 +8,20 @@
 import UIKit
 
 class MemberListVC: UIViewController {
-
+    
     @IBOutlet weak var memberListTableView: UITableView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
     }
-
-    func getLastMessage()->String{
-        do {
-            let dictionary = try VLUtility.loadPropertyList()
-            let chatDict = dictionary
-            var chatKeys = Array(chatDict.keys)
-            chatKeys.sort(by: <)
-            
-            return chatDict[chatKeys.last ?? ""] ?? ""
-        } catch {
-            return ""
-        }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        memberListTableView.reloadData()
     }
-
+    
 }
 
+//MARK:TableView Delegates
 extension MemberListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,8 +30,7 @@ extension MemberListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = memberListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! memberCell
-        
-        cell.messageLabel.text = getLastMessage()
+        cell.messageLabel.text = VLUtility.getLastMessage()
         return cell
     }
     
