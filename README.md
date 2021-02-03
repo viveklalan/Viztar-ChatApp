@@ -1,3 +1,3 @@
 # Viztar-ChatApp
 
-![](AppWalkthrough\app10001.gif)
+![AppWalkthrough](https://github.com/viveklalan/Viztar-ChatApp/blob/main/app10001.gif)
