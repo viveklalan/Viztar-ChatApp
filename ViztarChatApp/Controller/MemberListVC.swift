@@ -18,6 +18,18 @@ class MemberListVC: UIViewController {
        
     }
 
+    func getLastMessage()->String{
+        do {
+            let dictionary = try VLUtility.loadPropertyList()
+            let chatDict = dictionary
+            var chatKeys = Array(chatDict.keys)
+            chatKeys.sort(by: <)
+            
+            return chatDict[chatKeys.last ?? ""] ?? ""
+        } catch {
+            return ""
+        }
+    }
 
 }
 
@@ -28,8 +40,9 @@ extension MemberListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = memberListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = memberListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! memberCell
         
+        cell.messageLabel.text = getLastMessage()
         return cell
     }
     
@@ -40,4 +53,9 @@ extension MemberListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+
+class memberCell: UITableViewCell{
+    @IBOutlet weak var messageLabel: UILabel!
 }

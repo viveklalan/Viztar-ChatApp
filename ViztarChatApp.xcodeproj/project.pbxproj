@@ -16,7 +16,7 @@
 		49257B3625C96D2C00755EC4 /* ViztarChatAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49257B3525C96D2C00755EC4 /* ViztarChatAppTests.swift */; };
 		49257B4125C96D2C00755EC4 /* ViztarChatAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49257B4025C96D2C00755EC4 /* ViztarChatAppUITests.swift */; };
 		49403B5525C9DCE7002E1D07 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49403B5425C9DCE7002E1D07 /* Message.swift */; };
-		494C001625CA8751006B4530 /* chat.plist in Resources */ = {isa = PBXBuildFile; fileRef = 494C001525CA8751006B4530 /* chat.plist */; };
+		494C002125CA989D006B4530 /* chat.plist in Resources */ = {isa = PBXBuildFile; fileRef = 494C002025CA989D006B4530 /* chat.plist */; };
 		494CFFFF25CA7E17006B4530 /* VLUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494CFFFE25CA7E17006B4530 /* VLUtility.swift */; };
 		4981860F25C9B916000C5ABF /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4981860E25C9B916000C5ABF /* ChatVC.swift */; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 		49257B4025C96D2C00755EC4 /* ViztarChatAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViztarChatAppUITests.swift; sourceTree = "<group>"; };
 		49257B4225C96D2C00755EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49403B5425C9DCE7002E1D07 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		494C001525CA8751006B4530 /* chat.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chat.plist; sourceTree = "<group>"; };
+		494C002025CA989D006B4530 /* chat.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chat.plist; sourceTree = "<group>"; };
 		494CFFFE25CA7E17006B4530 /* VLUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLUtility.swift; sourceTree = "<group>"; };
 		4981860E25C9B916000C5ABF /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,7 +87,6 @@
 		49257B1225C96D2A00755EC4 = {
 			isa = PBXGroup;
 			children = (
-				494C001525CA8751006B4530 /* chat.plist */,
 				49257B1D25C96D2A00755EC4 /* ViztarChatApp */,
 				49257B3425C96D2C00755EC4 /* ViztarChatAppTests */,
 				49257B3F25C96D2C00755EC4 /* ViztarChatAppUITests */,
@@ -108,6 +107,7 @@
 		49257B1D25C96D2A00755EC4 /* ViztarChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				494C002025CA989D006B4530 /* chat.plist */,
 				49257B1E25C96D2A00755EC4 /* AppDelegate.swift */,
 				494CFFFE25CA7E17006B4530 /* VLUtility.swift */,
 				49403B5325C9DCCB002E1D07 /* Modal */,
@@ -275,7 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494C001625CA8751006B4530 /* chat.plist in Resources */,
+				494C002125CA989D006B4530 /* chat.plist in Resources */,
 				49257B2B25C96D2C00755EC4 /* LaunchScreen.storyboard in Resources */,
 				49257B2825C96D2C00755EC4 /* Assets.xcassets in Resources */,
 				49257B2625C96D2A00755EC4 /* Main.storyboard in Resources */,

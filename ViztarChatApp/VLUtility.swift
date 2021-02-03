@@ -15,7 +15,7 @@ class VLUtility{
 //        let documentDirectoryURL =  try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
 //        return documentDirectoryURL.appendingPathComponent("chat.plist")
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-            let path = "file://" + paths.appending("/chat.plist")
+            let path = paths.appending("/chat.plist")
             let fileManager = FileManager.default
             if (!(fileManager.fileExists(atPath: path)))
             {
@@ -26,7 +26,7 @@ class VLUtility{
                    print(error)
                 }
             }
-        return URL(string: path)!
+        return URL(string: "file://" + path)!
     }
     
     static func savePropertyList(_ plist: Any) throws
@@ -43,5 +43,12 @@ class VLUtility{
             return [:]
         }
         return plist
+    }
+    
+    static func dateForTimestamp(ts:String)-> String{
+        let date = Date(timeIntervalSince1970: Double(ts)!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        return dateFormatter.string(from: date)
     }
 }

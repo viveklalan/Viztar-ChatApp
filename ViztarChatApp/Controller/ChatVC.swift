@@ -35,6 +35,8 @@ class ChatVC: UIViewController, UITextViewDelegate {
         loadData()
     }
     
+
+    
     var chatDict = [String:String]()
     var chatKeys = [String]()
     
@@ -45,8 +47,17 @@ class ChatVC: UIViewController, UITextViewDelegate {
             chatKeys = Array(chatDict.keys)
             chatKeys.sort(by: <)
             messageTableView.reloadData()
+            scrollToBottom()
+            
         } catch {
             print(error)
+        }
+    }
+    
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.chatKeys.count-1, section: 0)
+            self.messageTableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         }
     }
 
@@ -112,12 +123,33 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 2 == 0{
-            let cell = messageTableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath)
+            let cell = messageTableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath) as! fromCell
+            
+            cell.messageView.layer.cornerRadius = 4
+            cell.messageLabel.text = chatDict[chatKeys[indexPath.row]]
+            cell.messageTimeLabel.text = VLUtility.dateForTimestamp(ts: chatKeys[indexPath.row])
             return cell
         }
         else{
-            let cell = messageTableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath)
+            let cell = messageTableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath) as! toCell
+            
+            cell.messageView.layer.cornerRadius = 4
+            cell.messageLabel.text = chatDict[chatKeys[indexPath.row]]
+            cell.messageTimeLabel.text = VLUtility.dateForTimestamp(ts: chatKeys[indexPath.row])
             return cell
         }
     }
+}
+
+
+class fromCell: UITableViewCell{
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageTimeLabel: UILabel!
+}
+
+class toCell: UITableViewCell{
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var messageTimeLabel: UILabel!
 }

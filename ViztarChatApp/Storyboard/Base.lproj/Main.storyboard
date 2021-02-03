@@ -58,7 +58,7 @@
                                 <rect key="frame" x="0.0" y="88" width="428" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="enE-TI-80n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="enE-TI-80n" customClass="memberCell" customModule="ViztarChatApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="428" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="enE-TI-80n" id="Sbf-pA-wEB">
@@ -79,16 +79,16 @@
                                                             <rect key="frame" x="62" y="0.0" width="350" height="55"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7z-7t-Y6o">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="20.333333333333332"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="18"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kct-nn-YCr">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="285.33333333333331" height="20.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Bob" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kct-nn-YCr">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="285.33333333333331" height="18"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:50 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssa-v9-XYD">
-                                                                            <rect key="frame" x="285.33333333333331" y="0.0" width="64.666666666666686" height="20.333333333333332"/>
+                                                                            <rect key="frame" x="285.33333333333331" y="0.0" width="64.666666666666686" height="18"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="messages text" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-wY-vu6">
-                                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="350" height="34.666666666666671"/>
+                                                                    <rect key="frame" x="0.0" y="18" width="350" height="37"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -126,6 +126,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="cel-u7-1ds" secondAttribute="trailing" id="gYa-Sg-fvb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="Qzm-wY-vu6" id="iKx-cY-rS1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -144,6 +147,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Messaages" id="KPR-j0-0lG">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="xy9-am-8Wf"/>
                         <barButtonItem key="rightBarButtonItem" image="pen" id="TYf-QI-Ob6"/>
                     </navigationItem>
                     <connections>
@@ -174,7 +178,7 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tocell" id="hj6-KP-8x6" customClass="toCell" customModule="ViztarChatApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tocell" id="hj6-KP-8x6" customClass="toCell" customModule="ViztarChatApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="428" height="74"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hj6-KP-8x6" id="u5h-Xq-Qyv">
@@ -220,8 +224,13 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="messageLabel" destination="gkn-AI-V87" id="z6O-Ir-NNK"/>
+                                                    <outlet property="messageTimeLabel" destination="dIp-53-2Mf" id="ErU-Pn-FuS"/>
+                                                    <outlet property="messageView" destination="cGK-9n-uHz" id="2wv-za-zi1"/>
+                                                </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fromcell" id="TDN-ac-THy" customClass="fromCell" customModule="ViztarChatApp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="fromcell" id="TDN-ac-THy" customClass="fromCell" customModule="ViztarChatApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="102" width="428" height="74"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TDN-ac-THy" id="zEe-lp-V56">
@@ -249,7 +258,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
-                                                            <color key="backgroundColor" red="0.92549019607843142" green="0.89803921568627454" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.97515869140625" green="0.98285140472204502" blue="0.95971503225313559" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="xBq-1L-QLB" secondAttribute="trailing" constant="10" id="a9z-qG-wZC"/>
                                                                 <constraint firstItem="xBq-1L-QLB" firstAttribute="top" secondItem="AuV-OZ-Zy1" secondAttribute="top" constant="10" id="mV7-Vi-oXd"/>
@@ -267,6 +276,11 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="messageLabel" destination="Qob-Ye-iWd" id="4hS-ha-dVF"/>
+                                                    <outlet property="messageTimeLabel" destination="K86-4U-G5T" id="AOK-87-MWF"/>
+                                                    <outlet property="messageView" destination="AuV-OZ-Zy1" id="Gia-mB-E2s"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -280,33 +294,31 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-z1-xTr">
                                                 <rect key="frame" x="8" y="8" width="412" height="34"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-iw-a8c">
-                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-iw-a8c">
+                                                        <rect key="frame" x="0.0" y="2.3333333333333304" width="34" height="29.666666666666668"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="Tyy-Ps-ZyC"/>
-                                                            <constraint firstAttribute="width" constant="45" id="dGx-nh-pn8"/>
+                                                            <constraint firstAttribute="width" constant="34" id="dGx-nh-pn8"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Send">
+                                                        <state key="normal" backgroundImage="plus" catalog="system">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-t4-LvE">
-                                                        <rect key="frame" x="53" y="0.0" width="306" height="34"/>
+                                                        <rect key="frame" x="42" y="0.0" width="328" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                                     </textView>
-                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-fl-5xe">
-                                                        <rect key="frame" x="367" y="0.0" width="45" height="34"/>
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jp-fl-5xe">
+                                                        <rect key="frame" x="378" y="1" width="34" height="32.666666666666671"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="D3a-2T-mJp"/>
-                                                            <constraint firstAttribute="width" constant="45" id="iwc-iz-iwj"/>
+                                                            <constraint firstAttribute="width" constant="34" id="iwc-iz-iwj"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Send">
+                                                        <state key="normal" backgroundImage="arrow.up.circle.fill" catalog="system">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -363,17 +375,17 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XI7-kc-K0q">
-                                            <rect key="frame" x="43" y="1" width="85" height="38.333333333333336"/>
+                                            <rect key="frame" x="43" y="4.3333333333333339" width="85" height="31.333333333333329"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1P-pv-RgK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Bob" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1P-pv-RgK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:50 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRo-WK-YmO">
-                                                    <rect key="frame" x="0.0" y="20.333333333333332" width="85" height="17.999999999999996"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <rect key="frame" x="0.0" y="17" width="85" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -385,7 +397,7 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="TDH-V6-mZ0" firstAttribute="leading" secondItem="gtx-Fg-PiI" secondAttribute="leading" id="Cub-F7-O8Y"/>
                                 <constraint firstAttribute="trailing" secondItem="TDH-V6-mZ0" secondAttribute="trailing" id="Hjy-TT-K23"/>
@@ -591,7 +603,6 @@
         <!--Navigation Controller-->
         <scene sceneID="drt-mF-TFp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="54R-RM-J5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="rEW-1A-dwU" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0qh-NM-X4s">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
@@ -601,11 +612,13 @@
                         <segue destination="Eus-NT-njM" kind="relationship" relationship="rootViewController" id="tB9-cs-BIu"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="54R-RM-J5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1341" y="-1114"/>
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="avatar" width="626" height="626"/>
         <image name="back" width="23" height="23"/>
         <image name="background" width="320" height="461"/>
@@ -616,6 +629,7 @@
         <image name="more" width="23" height="23"/>
         <image name="pen" width="23" height="23"/>
         <image name="phone" width="23" height="23"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="settings" width="23" height="23"/>
         <image name="underdev" width="600" height="446"/>
         <systemColor name="linkColor">
