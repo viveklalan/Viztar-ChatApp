@@ -28,12 +28,26 @@ class ChatVC: UIViewController, UITextViewDelegate {
         messageTableView.rowHeight = UITableView.automaticDimension
         messageTableView.estimatedRowHeight = 50
         
-        
-        
-  
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        loadData()
+    }
+    
+    var chatDict = [String:String]()
+    var chatKeys = [String]()
+    
+    func loadData(){
+        do {
+            let dictionary = try VLUtility.loadPropertyList()
+            chatDict = dictionary
+            chatKeys = Array(chatDict.keys)
+            chatKeys.sort(by: <)
+            messageTableView.reloadData()
+        } catch {
+            print(error)
+        }
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -70,6 +84,14 @@ class ChatVC: UIViewController, UITextViewDelegate {
             messageTextField.text == "Write Your Message Here"{
         }else{
             
+            do {
+                var dictionary = try VLUtility.loadPropertyList()
+                dictionary.updateValue(messageTextField.text, forKey: "\(Date().timeIntervalSince1970)")
+                try VLUtility.savePropertyList(dictionary)
+                loadData()
+            } catch {
+                print(error)
+            }
             messageTextField.text = "Write Your Message Here"
             messageTextField.textColor = UIColor.lightGray
         }
@@ -85,11 +107,10 @@ class ChatVC: UIViewController, UITextViewDelegate {
 
 extension ChatVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return chatKeys.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.row % 2 == 0{
             let cell = messageTableView.dequeueReusableCell(withIdentifier: "fromcell", for: indexPath)
             return cell
@@ -98,8 +119,5 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource{
             let cell = messageTableView.dequeueReusableCell(withIdentifier: "tocell", for: indexPath)
             return cell
         }
-            
     }
-    
-    
 }
